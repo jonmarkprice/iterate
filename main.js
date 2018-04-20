@@ -2,7 +2,15 @@ const LIMIT =  10;
 
 function* iterate(f, x) {
   let i = 0;
-  while (i < LIMIT) {
+  while (true) {
+    yield iterateN(i, f, x);
+    i++;
+  }
+}
+
+function* iterateMax(f, x, limit) {
+  let i = 0;
+  while (i < limit) {
     yield iterateN(i, f, x);
     i++;
   }
